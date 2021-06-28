@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <!--     Fonts and icons     -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+    
+        <!-- CSS Files -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+    
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="assets/css/demo.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <title>Plataforma</title>
+      </head>
+<body style="background: url(img/fondo.jpg); background:cover; background-repeat: no-repeat;background-attachment: fixed;">
+    <!--Apertura de header---------------------------------------------------------------
+      ------------------------------------------------------------------------------>
+      <header role="banner">
+        <div style = "background:#0a1f45">
+          <div class="container p-4">
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><img src="img/logo.png" alt="logo_universidad" width=></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active link-light" aria-current="index.html" href="index.html" style="color: #ffffff">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link-light" aria-current="#" href="check.html" style="color: c#ffffff;">Seguimiento del Entrenamiento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link-light" aria-current="#" href="https://baip.uaz.edu.mx/" style="color: c#ffffff;">Equipo de trabajo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header> 
+      <!--cierre de header---------------------------------------------------------------
+        ------------------------------------------------------------------------------>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-sm-offset-1 bg-light m-5 p-5">
+              <h2 class="text-center p-3 mb-3"> Consultar el estado de sus solicitud</h2>
+              <div class="form-group">
+                <label class="fs-3">Correo Electrónico <small>(Requerido)</small></label>
+                <input name="correo" type="text" class="form-control" id="myInput" placeholder="buscar">
+            </div>
+              <table class="table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Entrenamientos</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Acutalización</th>
+                      <th scope="col">Consulta </th>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <tr>
+                      <th scope="row">001</th>
+                      <td>Dataset_1</td>
+                      <td>En proceso</td>
+                      <td>12/12/2021 12:12:20</td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-sm px-3 " data-toggle="modal" data-target="#staticBackdrop">
+                          <i class="fa fa-eye"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">002</th>
+                      <td>Dataset_2</td>
+                      <td>Finalizado</td>
+                      <td>12/12/2021 12:12:20</td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-sm px-3">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm px-3">
+                          <i class="fa fa-download"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">003</th>
+                      <td>Dataset_3</td>
+                      <td>Error</td>
+                      <td>12/12/2021 12:12:20</td>
+                      <td>
+                        <button type="button" class="btn btn-danger btn-sm px-3">
+                          <i class="fa fa-exclamation-triangle"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+<!-- Modal_1 -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">En Proceso</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Su entrenamiento con ID001 Aún se está entrenado, pronto a su correo harold@gmail.com se le enviaran los resultad</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <script>
+          $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+            });
+          });
+          </script>
+        
+
+    <!--Apertura Footer---------------------------------------------------------------
+      ------------------------------------------------------------------------------>
+    <footer class="text-center text-white fixed-bottom" style="background-color: #996633e7;">
+      <!-- Grid container -->
+      <div class="container p-4"></div>
+      <!-- Grid container -->
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #996633;">
+        © 2021 Copyright:
+        <a class="text-white" href="https://baip.uaz.edu.mx/">litux.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </body>
+  </html>
